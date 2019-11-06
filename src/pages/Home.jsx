@@ -1,40 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Artist from './Artist';
+import Artist from '../Artist';
+import SearchForm from '../SearchForm';
 
-/*
-function App() {
-  const[artist, setArtist] = useState(null);
+export default () => {
+  const [artists, setArtists] = useState([]);
 
   useEffect(() => {
-    fetchArtist();
+    fetchArtists();
   }, []);
 
-  function fetchArtist() {
-    var searchValue = document.querySelector('#site-search').value;
-
+  function fetchArtists(query) {
     axios
-      .post('https://memusic.herokuapp.com/login')
-      .then((response) => {
-          axios
-              .get(`https://api.spotify.com/v1/search?q=${searchValue}&type=artist `, {
-                  'headers': {
-                      'Authorization': `Bearer ${response.data}`
-                  }
-              })
-              .then((response) => {
-                artists = response.data.artists.items;
-                  
-              });
-          });
-      };
-}
-*/
-export default () => {
+        .post('https://memusic.herokuapp.com/login')
+        .then((response) => {
+            axios
+                .get(`https://api.spotify.com/v1/search?q=${query}&type=artist `, {
+                    'headers': {
+                        'Authorization': `Bearer ${response.data}`
+                    }
+                })
+                .then(response => setArtists(response.data.artists.items));
+            })
+        };
+
+
   return (
     <div>
-      
+      <h1>memusic</h1>
+
+      <SearchForm fetchArtists={fetchArtists} />
+
+      <div>
+        {artists.map((artist, index) => (
+          <Artist key={index} artist={artist} />
+        ))}
+      </div>
     </div>
-  )
+  );
+  
 }
 

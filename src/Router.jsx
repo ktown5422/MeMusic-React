@@ -6,7 +6,7 @@ import Page3 from './pages/page3'
 import Page4 from './pages/page4'
 import Layout from './Layout'
 
-export const Routes = () => {
+export function Routes(){
     return (
         <Router>
             <Layout>
