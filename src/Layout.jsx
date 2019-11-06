@@ -5,6 +5,5 @@ export default ({ children }) => (
     <>
         <NavBar color={'secondary'} />
         {children}
-        <div>Little better than cheese</div>
     </>
 )
