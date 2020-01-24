@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import SearchForm from './SearchForm';
-import Artist from './Artist';
 import './App.css';
 import * as serviceWorker from './serviceWorker';
-import axios from 'axios';
 
 
 

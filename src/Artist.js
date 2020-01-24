@@ -1,18 +1,24 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid'
 
+// a shorter way to write the artist function with react 
+// export default function Artist({ artist, tracks })
 export default function Artist({ artist }) {
   const img = artist.images[0];
   const imgUrl = img ? img.url : '';
+  const id = artist.id[0]; 
+  // const prevTrack = id ? id.tracks : '';
 
   return (
     <div>
-      <img
-        
+      <img        
         src={imgUrl}
-        alt={artist.name}
+        alt={''}
         width="200"
       />
       <h3>{artist.name}</h3>
+      {/* <h3>{tracks.prevTrack}</h3> */}
+      
     </div>
   );
 }

@@ -21,3 +21,15 @@
 .App-link {
   color: #09d3ac;
 }
+.App-container {
+  margin: 0 auto;
+  max-width: 960px;
+}
+.App-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 300px;
+  grid-column-gap: 10px;
+  grid-row-gap: 15px;
+  text-align: center;
+}
